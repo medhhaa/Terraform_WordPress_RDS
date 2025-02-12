@@ -53,4 +53,12 @@ module "rds" {
   public_subnet_id  = module.networking.public_subnet_id
 }
 
+terraform {
+  backend "s3" {
+    bucket = "terraform-rds-activity-2"   # Your S3 bucket name
+    key    = "terraform/state/myproject.tfstate"  # Path within the bucket to store state
+    region = "us-east-1"             # Region where the S3 bucket is located
+  }
+}
+
 
