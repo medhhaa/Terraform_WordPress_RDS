@@ -34,7 +34,7 @@ jobs:
           terraform_wrapper: false
 
       - name: Terraform Init
-        run: terraform init
+        run: terraform init -force-copy
 
       - name: Terraform Plan
         run: terraform plan -var-file=terraform.tfvars  # Pass .tfvars file
@@ -65,7 +65,7 @@ jobs:
           terraform_wrapper: false
 
       - name: Terraform Init
-        run: terraform init
+        run: terraform init -force-copy
 
       - name: Terraform Plan - Destroy
         run: terraform plan -destroy -var-file=terraform.tfvars  # Pass .tfvars file for destroy
